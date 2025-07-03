@@ -1,0 +1,78 @@
+@import '../../../styles.scss'; // Імпорт глобальних стилів
+
+.navigation-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: $background-color;
+  padding: $spacing-medium $spacing-large;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+
+    .nav-item {
+      color: $text-muted-color;
+      font-family: $font-family;
+      font-size: $font-size-base;
+      margin-right: $spacing-medium;
+      padding: $spacing-small $spacing-medium;
+      border-radius: 20px; // Заокруглені вкладки
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
+
+      &:hover {
+        background-color: lighten($card-bg-color, 10%);
+        color: lighten($text-muted-color, 20%);
+      }
+
+      &.active {
+        background-color: $primary-color;
+        color: $text-color;
+      }
+    }
+  }
+
+  .search-bar {
+    display: flex;
+    align-items: center;
+    background-color: $card-bg-color;
+    border-radius: 20px; // Заокруглений пошук
+    padding: $spacing-small $spacing-medium;
+
+    input {
+      background: none;
+      border: none;
+      color: $text-color;
+      font-family: $font-family;
+      font-size: $font-size-base;
+      outline: none;
+      width: 200px;
+
+      &::placeholder {
+        color: $text-muted-color;
+      }
+    }
+
+    .search-icon {
+      color: $text-muted-color;
+      margin-left: $spacing-small;
+    }
+  }
+
+  .user-avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $primary-color;
+    color: $text-color;
+    font-size: $font-size-base;
+    font-weight: bold;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    margin-left: $spacing-medium;
+    cursor: pointer;
+  }
+}

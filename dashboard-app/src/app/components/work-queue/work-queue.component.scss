@@ -1,0 +1,35 @@
+@import '../../../styles.scss';
+
+.work-queue {
+  background-color: $background-color;
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 20px;
+
+  .tabs {
+    display: flex;
+    margin-bottom: 15px;
+
+    button {
+      background-color: $card-bg-color;
+      border: none;
+      color: $text-muted-color;
+      font-size: $font-size-base;
+      font-family: $font-family;
+      padding: $spacing-small $spacing-medium;
+      border-radius: 20px;
+      margin-right: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
+
+      &:hover {
+        background-color: lighten($card-bg-color, 10%);
+      }
+
+      &.active {
+        background-color: $primary-color;
+        color: $text-color;
+      }
+    }
+  }
+}

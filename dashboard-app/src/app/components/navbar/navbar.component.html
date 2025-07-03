@@ -1,0 +1,22 @@
+<nav class="navigation-bar">
+    <div class="nav-links">
+      <div class="nav-item" [class.active]="activeTab === 'dashboard'" (click)="setActiveTab('dashboard')">
+        Dashboard
+      </div>
+      <div class="nav-item" [class.active]="activeTab === 'accounts'" (click)="setActiveTab('accounts')">
+        Accounts
+      </div>
+      <div class="nav-item">Brokers</div>
+      <div class="nav-item">Submissions</div>
+      <div class="nav-item">Organizations</div>
+      <div class="nav-item">Goals & Rules</div>
+      <div class="nav-item">Admin</div>
+    </div>
+    <div class="search-bar">
+      <input type="text" placeholder="Search" />
+      <i class="search-icon material-icons">search</i>
+    </div>
+    <div class="user-avatar">
+      AR
+    </div>
+  </nav>

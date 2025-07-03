@@ -1,1 +1,155 @@
-/* You can add global styles to this file, and also import other style files */
+// === Кольори ===
+$primary-color: #4da6ff; // Основний блакитний
+$secondary-color: #1e88e5; // Темніший блакитний для акцентів
+$background-color: #0e1b2a; // Темний фон
+$card-bg-color: #16263d; // Фон карток
+$text-color: #ffffff; // Білий текст
+$text-muted-color: #9da5b1; // Світло-сірий текст
+$hover-bg-color: #1a2b44; // Фон при наведенні
+$error-color: #ff5252; // Червоний для помилок
+$warning-color: #ff9800; // Помаранчевий для попереджень
+$success-color: #4caf50; // Зелений для успіху
+
+// === Шрифти ===
+$font-family: 'Inter', sans-serif;
+$font-size-base: 14px;
+$font-size-small: 12px;
+$font-size-large: 16px;
+
+// === Відступи ===
+$spacing-small: 8px;
+$spacing-medium: 16px;
+$spacing-large: 24px;
+$spacing-page: 32px;
+
+// === Глобальні міксини ===
+
+// Тінь картки
+@mixin card-shadow {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+// Адаптивність
+@mixin responsive($breakpoint) {
+  @if $breakpoint == 'tablet' {
+    @media (max-width: 768px) {
+      @content;
+    }
+  } @else if $breakpoint == 'mobile' {
+    @media (max-width: 480px) {
+      @content;
+    }
+  }
+}
+
+// Базовий стиль кнопок
+@mixin button-style($bg-color, $text-color) {
+  background-color: $bg-color;
+  color: $text-color;
+  padding: $spacing-small $spacing-medium;
+  border: none;
+  border-radius: 20px; // Заокруглені кнопки
+  font-family: $font-family;
+  font-size: $font-size-base;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: lighten($bg-color, 10%);
+  }
+}
+// === Глобальні стилі ===
+
+// Скидання стилів
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// Body
+body {
+  background-color: $background-color;
+  color: $text-color;
+  font-family: $font-family;
+  font-size: $font-size-base;
+  line-height: 1.6;
+  padding: 0 $spacing-page;
+}
+
+// Заголовки
+h1, h2, h3, h4, h5, h6 {
+  color: $text-color;
+  font-family: $font-family;
+  margin-bottom: $spacing-small;
+}
+
+h1 {
+  font-size: 24px;
+}
+
+h2 {
+  font-size: 20px;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4, h5, h6 {
+  font-size: 16px;
+}
+
+// Текст
+p {
+  color: $text-muted-color;
+  margin-bottom: $spacing-medium;
+}
+
+// Посилання
+a {
+  color: $primary-color;
+  text-decoration: none;
+  transition: color 0.3s;
+
+  &:hover {
+    color: lighten($primary-color, 10%);
+  }
+}
+
+// Кнопки
+button {
+  @include button-style($primary-color, $text-color);
+}
+
+// Контейнери
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 $spacing-medium;
+}
+
+// Адаптивність
+@media (max-width: 768px) {
+  body {
+    font-size: $font-size-small;
+  }
+
+  .container {
+    padding: 0 $spacing-small;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 20px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  h3 {
+    font-size: 16px;
+  }
+}

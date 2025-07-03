@@ -1,0 +1,15 @@
+<div class="work-queue">
+    <h1>Work Queue</h1>
+    <div class="tabs">
+      <button [class.active]="activeTab === 'assigned'" (click)="setTab('assigned')">
+        Assigned to Me ({{ getCount('assigned') }})
+      </button>
+      <button [class.active]="activeTab === 'pending'" (click)="setTab('pending')">
+        Pending Review ({{ getCount('pending') }})
+      </button>
+      <button [class.active]="activeTab === 'referrals'" (click)="setTab('referrals')">
+        Referrals ({{ getCount('referrals') }})
+      </button>
+    </div>
+    <app-table [columns]="columns" [data]="filteredData"></app-table>
+  </div>

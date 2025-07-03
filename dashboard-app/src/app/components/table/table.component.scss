@@ -1,0 +1,58 @@
+@import '../../../styles.scss';
+
+.table-container {
+  overflow-x: auto;
+  background-color: $card-bg-color;
+  border-radius: 20px; // Заокруглена таблиця
+  padding: $spacing-medium;
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+
+    thead {
+      background-color: $background-color;
+
+      th {
+        text-align: left;
+        padding: $spacing-small $spacing-medium;
+        font-size: $font-size-small;
+        font-family: $font-family;
+        color: $text-muted-color;
+        text-transform: uppercase;
+      }
+    }
+
+    tbody {
+      tr {
+        background-color: $hover-bg-color;
+        transition: background-color 0.3s;
+
+        &:hover {
+          background-color: lighten($hover-bg-color, 10%);
+        }
+
+        td {
+          text-align: left;
+          padding: $spacing-small $spacing-medium;
+          font-size: $font-size-base;
+          font-family: $font-family;
+          color: $text-color;
+
+          // Стилі для статусів
+          &.status-new {
+            color: $success-color;
+          }
+
+          &.status-pending {
+            color: $warning-color;
+          }
+
+          &.status-completed {
+            color: $secondary-color;
+          }
+        }
+      }
+    }
+  }
+}
