@@ -1,0 +1,62 @@
+<div class="portfolio-goals">
+    <h1>Portfolio goals</h1>
+  
+    <!-- Перші два спеціальні прогрес-бари -->
+    <div class="goal" *ngFor="let goal of specialGoals">
+      <div class="goal-title">{{ goal.title }}</div>
+  
+      <div class="special-progress-bar-container">
+        <div class="special-progress-bar">
+          <div
+            class="special-progress-section"
+            *ngFor="let section of goal.sections"
+            [ngStyle]="{ 'width': section.width + '%', 'background-color': section.color }"
+          ></div>
+          <!-- Значення на прогрес-барі -->
+          <div class="special-progress-indicator" [ngStyle]="{ 'left': goal.indicatorPosition + '%' }">
+            {{ goal.value }}%
+          </div>
+        </div>
+        <!-- TG: 55% -->
+        <div class="special-target-indicator" [ngStyle]="{ 'left': goal.targetPosition + '%' }">
+          <span>▲</span> TG: {{ goal.target }}
+        </div>
+      </div>
+  
+      <div class="goal-info">
+        <span class="goal-status"  [ngClass]="goal.statusClass">{{ goal.status }}</span>
+      </div>
+    </div>
+  
+    <!-- Останні два прогрес-бари -->
+    <div class="goal" *ngFor="let goal of regularGoals">
+      <div class="goal-title">{{ goal.title }}</div>
+  
+      <div class="progress-bar-container">
+        <progress
+          class="progress-bar"
+          [value]="goal.value"
+          [max]="goal.max"
+        ></progress>
+        <!-- Значення на прогрес-барі -->
+        <div
+          class="progress-value"
+          [ngStyle]="{ 'left': (goal.value / goal.max) * 100 + '%' }"
+        >
+          {{ goal.current }}
+        </div>
+        <!-- Сума в кінці прогрес-бару -->
+        <div class="progress-total">
+          ${{ goal.max }}M
+        </div>
+        <!-- Відсоток під прогрес-баром -->
+        <div class="progress-percentage" [ngStyle]="{ 'left': (goal.value / goal.max) * 100 + '%' }">
+          {{ ((goal.value / goal.max) * 100).toFixed(0) }}%
+        </div>
+      </div>
+  
+      <div class="goal-info">
+        <span class="goal-status" [ngClass]="goal.statusClass">{{ goal.status }}</span>
+      </div>
+    </div>
+  </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EventBusService } from 'src/app/services/event-bus';
 
 @Component({
   selector: 'app-work-queue',
@@ -29,8 +30,11 @@ export class WorkQueueComponent implements OnInit {
 
   filteredData: any = [];
 
+  constructor(private eventBus: EventBusService) {}
+
   ngOnInit(): void {
     this.filterData();
+    this.eventBus.emit('taskCountUpdate', this.filteredData.length);
   }
 
   setTab(tab: string): void {

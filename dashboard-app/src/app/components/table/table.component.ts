@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-table',
@@ -9,7 +9,30 @@ export class TableComponent {
   @Input() columns: { field: string, header: string }[] = [];
   @Input() data: any[] = [];
 
-  // Метод для визначення класу комірки залежно від її значення
+  activeMenu: any = null;
+
+  toggleMenu(row: any): void {
+    if (this.activeMenu === row) {
+      this.activeMenu = null;
+    } else {
+      this.activeMenu = row;
+    }
+  }
+
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: Event): void {
+    const target = event.target as HTMLElement;
+
+    if (!target.closest('.menu')) {
+      this.activeMenu = null;
+    }
+  }
+
+  onAction(action: string, row: any): void {
+    console.log(`Action: ${action}, Row:`, row);
+    this.activeMenu = null;
+  }
+
   getCellClass(row: any, field: string): string {
     if (field === 'status') {
       if (row[field] === 'New') {

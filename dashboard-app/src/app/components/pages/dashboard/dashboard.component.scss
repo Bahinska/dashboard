@@ -1,0 +1,12 @@
+@import '../../../../styles.scss';
+
+.container {
+  padding: $spacing-medium $spacing-large; // Відступи по боках
+}
+
+.dashboard-layout {
+  display: grid;
+  grid-template-columns: 3fr 1fr; // Work Queue займає 3 частини, Portfolio Goals — 1 частину
+  gap: $spacing-medium; // Відступ між компонентами
+  align-items: start; // Вирівнювання компонентів по верхньому краю
+}

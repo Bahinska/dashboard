@@ -1,8 +1,8 @@
 // === Кольори ===
-$primary-color: #4da6ff; // Основний блакитний
+$primary-color: #1e40b0; // Основний блакитний
 $secondary-color: #1e88e5; // Темніший блакитний для акцентів
 $background-color: #0e1b2a; // Темний фон
-$card-bg-color: #16263d; // Фон карток
+$card-bg-color: #1e2233; // Фон карток
 $text-color: #ffffff; // Білий текст
 $text-muted-color: #9da5b1; // Світло-сірий текст
 $hover-bg-color: #1a2b44; // Фон при наведенні
@@ -20,7 +20,8 @@ $font-size-large: 16px;
 $spacing-small: 8px;
 $spacing-medium: 16px;
 $spacing-large: 24px;
-$spacing-page: 32px;
+$spacing-Xlarge: 32px;
+$spacing-page: 70px;
 
 // === Глобальні міксини ===
 
@@ -124,8 +125,8 @@ button {
 
 // Контейнери
 .container {
-  max-width: 1200px;
-  margin: 0 auto;
+  max-width: 100%;
+  margin: 0 $spacing-medium;
   padding: 0 $spacing-medium;
 }
 

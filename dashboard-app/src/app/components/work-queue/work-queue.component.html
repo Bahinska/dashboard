@@ -11,5 +11,7 @@
         Referrals ({{ getCount('referrals') }})
       </button>
     </div>
-    <app-table [columns]="columns" [data]="filteredData"></app-table>
+    <div class="table-container">
+      <app-table [columns]="columns" [data]="filteredData"></app-table>
+    </div>
   </div>

@@ -3,12 +3,25 @@
       <thead>
         <tr>
           <th *ngFor="let column of columns">{{ column.header }}</th>
+          <th> </th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let row of data">
           <td *ngFor="let column of columns" [ngClass]="getCellClass(row, column.field)">
             {{ row[column.field] }}
+          </td>
+          <td>
+            <div class="menu">
+              <button class="menu-button" (click)="toggleMenu(row)">
+                <i class="material-icons">more_vert</i>
+              </button>
+              <div class="menu-dropdown" *ngIf="activeMenu === row">
+                <button (click)="onAction('view', row)">Details</button>
+                <button (click)="onAction('edit', row)">Edit</button>
+                <button (click)="onAction('delete', row)">Delete</button>
+              </div>
+            </div>
           </td>
         </tr>
       </tbody>

@@ -1,9 +1,11 @@
 @import '../../../styles.scss';
 
 .table-container {
+  width: 100%;
   overflow-x: auto;
-  background-color: $card-bg-color;
-  border-radius: 20px; // Заокруглена таблиця
+  flex: 1; // Займає доступний простір
+  overflow-y: auto; // Додаємо вертикальний скрол
+  border-radius: 20px;
   padding: $spacing-medium;
 
   table {
@@ -11,13 +13,14 @@
     border-collapse: collapse;
 
     thead {
-      background-color: $background-color;
+      background-color: lighten($card-bg-color, 5%);
 
       th {
         text-align: left;
         padding: $spacing-small $spacing-medium;
-        font-size: $font-size-small;
         font-family: $font-family;
+        font-size: $font-size-small;
+        font-weight: 500;
         color: $text-muted-color;
         text-transform: uppercase;
       }
@@ -25,20 +28,24 @@
 
     tbody {
       tr {
-        background-color: $hover-bg-color;
+        background-color: $card-bg-color;
         transition: background-color 0.3s;
 
+        &:nth-child(even) {
+            background-color: lighten($card-bg-color, 5%); // Інший фон для кожного другого рядка
+          }
+
         &:hover {
-          background-color: lighten($hover-bg-color, 10%);
+          background-color: lighten($card-bg-color, 10%);
         }
 
         td {
           text-align: left;
           padding: $spacing-small $spacing-medium;
-          font-size: $font-size-base;
           font-family: $font-family;
+          font-size: $font-size-base;
           color: $text-color;
-
+          
           // Стилі для статусів
           &.status-new {
             color: $success-color;
@@ -50,6 +57,53 @@
 
           &.status-completed {
             color: $secondary-color;
+          }
+
+          // Стилі для меню
+          .menu {
+            position: relative;
+
+            .menu-button {
+              background: none;
+              border: none;
+              color: $text-muted-color;
+              cursor: pointer;
+              font-size: $font-size-large;
+              padding: 0;
+              transition: color 0.3s;
+
+              &:hover {
+                color: lighten($text-muted-color, 20%);
+              }
+            }
+
+            .menu-dropdown {
+              position: absolute;
+              top: 100%;
+              right: 0;
+              background-color: $card-bg-color;
+              border-radius: 8px;
+              box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+              z-index: 10;
+              display: flex;
+              flex-direction: column;
+
+              button {
+                background: none;
+                border: none;
+                color: $text-color;
+                font-family: $font-family;
+                font-size: $font-size-base;
+                padding: $spacing-small $spacing-medium;
+                text-align: left;
+                cursor: pointer;
+                transition: background-color 0.3s;
+
+                &:hover {
+                  background-color: lighten($card-bg-color, 10%);
+                }
+              }
+            }
           }
         }
       }

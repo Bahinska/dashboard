@@ -1,22 +1,44 @@
 <nav class="navigation-bar">
+    <!-- Верхній рядок: привітання + пошук і аватар -->
+    <div class="navbar-top">
+      <div class="navbar-header">
+        <h1>Hi Arthur, welcome! You have {{ assignedTasks }} open tasks.</h1>
+      </div>
+      <div class="navbar-actions">
+        <div class="search-bar">
+          <input type="text" placeholder="Search" />
+          <i class="search-icon material-icons">search</i>
+        </div>
+        <div class="user-avatar">
+          AR
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Нижній рядок: кнопки навігації -->
     <div class="nav-links">
-      <div class="nav-item" [class.active]="activeTab === 'dashboard'" (click)="setActiveTab('dashboard')">
-        Dashboard
+        <div class="nav-item" [class.active]="activeTab === 'dashboard'" (click)="setActiveTab('dashboard')">
+          <i class="material-icons nav-icon">home</i> Dashboard
+        </div>
+        <div class="nav-item" [class.active]="activeTab === 'accounts'" (click)="setActiveTab('accounts')">
+          <i class="material-icons nav-icon">account_circle</i> Accounts
+        </div>
+        <div class="nav-item">
+          <i class="material-icons nav-icon">people</i> Brokers
+        </div>
+        <div class="nav-item">
+          <i class="material-icons nav-icon">assignment</i> Submissions
+        </div>
+        <div class="nav-item">
+          <i class="material-icons nav-icon">business</i> Organizations
+        </div>
+        <div class="nav-item">
+          <i class="material-icons nav-icon">rule</i> Goals & Rules
+        </div>
+        <div class="nav-item">
+          <i class="material-icons nav-icon">admin_panel_settings</i> Admin
+        </div>
       </div>
-      <div class="nav-item" [class.active]="activeTab === 'accounts'" (click)="setActiveTab('accounts')">
-        Accounts
-      </div>
-      <div class="nav-item">Brokers</div>
-      <div class="nav-item">Submissions</div>
-      <div class="nav-item">Organizations</div>
-      <div class="nav-item">Goals & Rules</div>
-      <div class="nav-item">Admin</div>
-    </div>
-    <div class="search-bar">
-      <input type="text" placeholder="Search" />
-      <i class="search-icon material-icons">search</i>
-    </div>
-    <div class="user-avatar">
-      AR
-    </div>
   </nav>

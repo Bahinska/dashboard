@@ -7,6 +7,7 @@ import { DashboardComponent } from './components/pages/dashboard/dashboard.compo
 import { AccountComponent } from './components/pages/account/account.component';
 import { TableComponent } from './components/table/table.component';
 import { WorkQueueComponent } from './components/work-queue/work-queue.component';
+import { PortfolioGoalsComponent } from './components/portfolio-goals/portfolio-goals.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { WorkQueueComponent } from './components/work-queue/work-queue.component
     AccountComponent,
     NavbarComponent,
     TableComponent,
-    WorkQueueComponent
+    WorkQueueComponent,
+    PortfolioGoalsComponent
   ],
   imports: [
     BrowserModule,
